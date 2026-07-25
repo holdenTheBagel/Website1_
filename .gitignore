@@ -1,0 +1,19 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# H2 database files
+*.mv.db
+*.trace.db
+
+# Local env overrides
+.env
+application-local.properties

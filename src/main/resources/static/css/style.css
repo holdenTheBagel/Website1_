@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Honeypot anti-spam field: present in the DOM for bots to fill in,
+   but moved off-screen and unreachable by tab so real visitors never see it. */
+.honeypot-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 0;
+    overflow: hidden;
+}

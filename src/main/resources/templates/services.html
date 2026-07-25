@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(title='Services')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+
+<main class="container py-5">
+    <h1 class="mb-4">Services</h1>
+    <p class="text-muted mb-5">Here's what I can help with. Details and pricing coming soon — reach out on the
+        <a th:href="@{/contact}">contact page</a> for a quote.</p>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Web Development</h5>
+                    <p class="card-text">Custom websites and web applications, from simple marketing sites to
+                        full Spring Boot back ends.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">IT Support</h5>
+                    <p class="card-text">Hands-on troubleshooting, setup, and maintenance for small teams and
+                        individuals.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Consulting</h5>
+                    <p class="card-text">Guidance on picking the right tools and architecture for a new or
+                        growing project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
