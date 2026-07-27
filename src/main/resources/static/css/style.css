@@ -21,3 +21,52 @@ main {
     height: 0;
     overflow: hidden;
 }
+
+/* Home page entrance animations */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero > * {
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+.hero > *:nth-child(1) { animation-delay: 0.05s; }
+.hero > *:nth-child(2) { animation-delay: 0.15s; }
+.hero > *:nth-child(3) { animation-delay: 0.25s; }
+.hero > *:nth-child(4) { animation-delay: 0.35s; }
+
+.service-card {
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease-out forwards;
+    animation-delay: 0.45s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.row > div:nth-child(2) .service-card { animation-delay: 0.55s; }
+.row > div:nth-child(3) .service-card { animation-delay: 0.65s; }
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero > *,
+    .service-card {
+        animation: none;
+        opacity: 1;
+    }
+
+    .service-card {
+        transition: none;
+    }
+}
