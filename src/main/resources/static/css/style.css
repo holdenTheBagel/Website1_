@@ -80,9 +80,25 @@ footer {
     border-radius: 0 !important;
 }
 
+.card,
+.hero,
+.alert,
+.list-group-item {
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
 .card {
     border: 2px solid var(--retro-navy) !important;
-    box-shadow: none !important;
+}
+
+.btn {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
+    transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.15s ease;
+}
+
+.btn:active {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+    transform: translate(2px, 2px);
 }
 
 .btn-primary {
@@ -108,11 +124,12 @@ footer {
 
 .form-control {
     border: 1px solid var(--retro-navy-dark);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .form-control:focus {
     border-color: var(--retro-navy);
-    box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.25);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 51, 153, 0.25);
 }
 
 .list-group-item {
@@ -171,7 +188,7 @@ footer {
 .service-card:hover {
     transform: translateY(-6px);
     border-color: var(--retro-navy-dark) !important;
-    box-shadow: none !important;
+    box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.4) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
