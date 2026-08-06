@@ -84,52 +84,60 @@ footer {
 .hero,
 .alert,
 .list-group-item {
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.35) !important;
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55) !important;
 }
 
 .card {
     border: 2px solid var(--retro-navy) !important;
 }
 
+/* Beveled 3D buttons: gradient fill + inset highlight/shade lines + a strong drop shadow */
 .btn {
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
-    transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.15s ease;
+    border-width: 1px;
+    box-shadow:
+        6px 6px 10px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.1s ease, transform 0.1s ease, background 0.15s ease;
 }
 
 .btn:active {
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
-    transform: translate(2px, 2px);
+    box-shadow:
+        1px 1px 3px rgba(0, 0, 0, 0.55),
+        inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    transform: translate(4px, 4px);
 }
 
 .btn-primary {
-    background-color: var(--retro-navy);
+    background: linear-gradient(to bottom, #3366d9 0%, var(--retro-navy) 55%, #002670 100%);
     border-color: var(--retro-navy-dark);
 }
 
 .btn-primary:hover {
-    background-color: var(--retro-navy-dark);
+    background: linear-gradient(to bottom, #2a58c0 0%, var(--retro-navy-dark) 55%, #001a4d 100%);
     border-color: var(--retro-navy-dark);
 }
 
 .btn-outline-secondary {
+    background: linear-gradient(to bottom, #ffffff 0%, #dbe4f7 100%);
     color: var(--retro-navy);
     border-color: var(--retro-navy);
 }
 
 .btn-outline-secondary:hover {
-    background-color: var(--retro-navy);
+    background: linear-gradient(to bottom, #3366d9 0%, var(--retro-navy) 55%, #002670 100%);
     border-color: var(--retro-navy);
     color: #ffffff;
 }
 
 .form-control {
     border: 1px solid var(--retro-navy-dark);
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .form-control:focus {
     border-color: var(--retro-navy);
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 51, 153, 0.25);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 51, 153, 0.25);
 }
 
 .list-group-item {
@@ -188,7 +196,7 @@ footer {
 .service-card:hover {
     transform: translateY(-6px);
     border-color: var(--retro-navy-dark) !important;
-    box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 10px 16px 18px rgba(0, 0, 0, 0.6) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
