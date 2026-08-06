@@ -1,15 +1,129 @@
+:root {
+    --retro-navy: #003399;
+    --retro-navy-dark: #001f5c;
+    --retro-link: #0000cc;
+    --retro-text: #111111;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--retro-text);
+    background-color: #ffffff;
 }
 
 main {
     flex: 1;
 }
 
+a {
+    color: var(--retro-link);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--retro-navy-dark);
+}
+
+/* --- Navbar / logo wordmark --- */
+.navbar {
+    background-color: var(--retro-navy) !important;
+    border-bottom: 3px solid var(--retro-navy-dark);
+    border-radius: 0;
+}
+
 .navbar-brand {
-    font-weight: 600;
+    font-size: 1.5rem;
+    display: inline-block;
+    transform: skewX(-3deg);
+    text-decoration: none !important;
+}
+
+.navbar-brand .logo-mark {
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navbar-brand .logo-sub {
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: #cfe0ff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.nav-link {
+    text-decoration: none !important;
+}
+
+.nav-link:hover {
+    text-decoration: underline !important;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--retro-navy-dark) !important;
+    border-top: 3px solid var(--retro-navy);
+}
+
+/* --- Flat, hard-bordered modules (no rounded corners, no soft shadows) --- */
+.card,
+.btn,
+.form-control,
+.alert,
+.list-group-item {
+    border-radius: 0 !important;
+}
+
+.card {
+    border: 2px solid var(--retro-navy) !important;
+    box-shadow: none !important;
+}
+
+.btn-primary {
+    background-color: var(--retro-navy);
+    border-color: var(--retro-navy-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--retro-navy-dark);
+    border-color: var(--retro-navy-dark);
+}
+
+.btn-outline-secondary {
+    color: var(--retro-navy);
+    border-color: var(--retro-navy);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--retro-navy);
+    border-color: var(--retro-navy);
+    color: #ffffff;
+}
+
+.form-control {
+    border: 1px solid var(--retro-navy-dark);
+}
+
+.form-control:focus {
+    border-color: var(--retro-navy);
+    box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.25);
+}
+
+.list-group-item {
+    border: 1px solid var(--retro-navy-dark) !important;
+}
+
+/* --- Hero banner module --- */
+.hero {
+    background-color: #ffffff !important;
+    border: 3px solid var(--retro-navy);
+    border-top: 8px solid var(--retro-navy);
 }
 
 /* Honeypot anti-spam field: present in the DOM for bots to fill in,
@@ -56,7 +170,8 @@ main {
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--retro-navy-dark) !important;
+    box-shadow: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

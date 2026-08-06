@@ -9,9 +9,9 @@
 </head>
 <body>
 <header th:fragment="header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" th:href="@{/}">HMCtechSolutions</a>
+            <a class="navbar-brand" th:href="@{/}"><span class="logo-mark">HMC</span><span class="logo-sub">techSolutions</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
                     aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
     </nav>
 </header>
 
-<footer th:fragment="footer" class="bg-dark text-light text-center py-3 mt-5">
+<footer th:fragment="footer" class="text-light text-center py-3 mt-5">
     <div class="container">
         <p class="mb-0">&copy; <span th:text="${T(java.time.LocalDate).now().getYear()}">2026</span> HMCtechSolutions. All rights reserved.</p>
     </div>
