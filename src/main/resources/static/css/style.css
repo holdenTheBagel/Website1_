@@ -38,7 +38,9 @@ main {
 /* Boxed panel for page headings/intros that would otherwise sit directly on the
    tinted network background — matches the card/hero flat-bordered treatment. */
 .panel {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 2px solid var(--retro-navy);
     box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55);
     padding: 2rem;
@@ -114,7 +116,9 @@ footer {
 }
 
 .card {
-    background-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 2px solid var(--retro-navy) !important;
 }
 
@@ -168,13 +172,17 @@ footer {
 }
 
 .list-group-item {
-    background-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--retro-navy-dark) !important;
 }
 
 /* --- Hero banner module --- */
 .hero {
-    background-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 3px solid var(--retro-navy);
     border-top: 8px solid var(--retro-navy);
 }
