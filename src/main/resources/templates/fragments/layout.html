@@ -8,6 +8,111 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="bg-network" aria-hidden="true" th:fragment="background">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+        <style>
+            .bg { fill: #000000; }
+            .tint { fill: #003399; fill-opacity: 0.25; }
+
+            .tentacle {
+                fill: none;
+                stroke: #ffffff;
+                stroke-linecap: round;
+            }
+
+            .tentacle-main {
+                stroke-width: 2.5;
+                stroke-opacity: 0.55;
+                stroke-dasharray: 10 14;
+                animation-name: flow;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            .tentacle-branch {
+                stroke-width: 1.6;
+                stroke-opacity: 0.4;
+                stroke-dasharray: 6 10;
+                animation-name: flow;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes flow {
+                to { stroke-dashoffset: -480; }
+            }
+
+            .node {
+                fill: #ffffff;
+                transform-box: fill-box;
+                transform-origin: center;
+                animation-name: pulse;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+            }
+
+            .node-hub { fill-opacity: 0.9; }
+            .node-tip { fill-opacity: 0.55; }
+
+            @keyframes pulse {
+                0%, 100% { opacity: 0.5; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.5); }
+            }
+        </style>
+
+        <rect class="bg" x="0" y="0" width="1600" height="900"/>
+
+        <!-- Main tentacles radiating from the central hub -->
+        <path class="tentacle tentacle-main" style="animation-duration:4s; animation-delay:0s"
+              d="M800,450 C600,300 350,250 150,100"/>
+        <path class="tentacle tentacle-main" style="animation-duration:4.6s; animation-delay:0.4s"
+              d="M800,450 C1000,300 1250,220 1450,120"/>
+        <path class="tentacle tentacle-main" style="animation-duration:3.8s; animation-delay:0.8s"
+              d="M800,450 C550,460 300,470 80,450"/>
+        <path class="tentacle tentacle-main" style="animation-duration:4.3s; animation-delay:1.2s"
+              d="M800,450 C1050,440 1300,455 1520,470"/>
+        <path class="tentacle tentacle-main" style="animation-duration:4.1s; animation-delay:0.2s"
+              d="M800,450 C600,600 350,700 200,800"/>
+        <path class="tentacle tentacle-main" style="animation-duration:3.6s; animation-delay:1.6s"
+              d="M800,450 C1000,620 1250,720 1400,820"/>
+        <path class="tentacle tentacle-main" style="animation-duration:4.8s; animation-delay:0.6s"
+              d="M800,450 C820,300 810,150 800,60"/>
+        <path class="tentacle tentacle-main" style="animation-duration:4.2s; animation-delay:1.0s"
+              d="M800,450 C780,600 790,750 800,850"/>
+
+        <!-- Secondary branches for extra neural complexity -->
+        <path class="tentacle tentacle-branch" style="animation-duration:3.2s; animation-delay:0.5s"
+              d="M500,320 C420,380 380,430 350,450"/>
+        <path class="tentacle tentacle-branch" style="animation-duration:3.4s; animation-delay:1.4s"
+              d="M1150,448 C1180,520 1190,560 1200,600"/>
+        <path class="tentacle tentacle-branch" style="animation-duration:3.0s; animation-delay:0.9s"
+              d="M650,560 C600,630 580,670 560,720"/>
+
+        <!-- Central hub cluster -->
+        <circle class="node node-hub" cx="800" cy="450" r="9" style="animation-duration:3.5s; animation-delay:0s"/>
+        <circle class="node node-hub" cx="760" cy="410" r="5" style="animation-duration:3.2s; animation-delay:0.3s"/>
+        <circle class="node node-hub" cx="840" cy="410" r="5" style="animation-duration:3.8s; animation-delay:0.6s"/>
+        <circle class="node node-hub" cx="770" cy="490" r="5" style="animation-duration:3.4s; animation-delay:0.9s"/>
+        <circle class="node node-hub" cx="830" cy="490" r="5" style="animation-duration:3.6s; animation-delay:1.2s"/>
+        <circle class="node node-hub" cx="800" cy="400" r="4" style="animation-duration:3.1s; animation-delay:1.5s"/>
+
+        <!-- Tips -->
+        <circle class="node node-tip" cx="150" cy="100" r="4" style="animation-duration:3.3s; animation-delay:0.1s"/>
+        <circle class="node node-tip" cx="1450" cy="120" r="4" style="animation-duration:3.7s; animation-delay:0.5s"/>
+        <circle class="node node-tip" cx="80" cy="450" r="4" style="animation-duration:3.5s; animation-delay:0.9s"/>
+        <circle class="node node-tip" cx="1520" cy="470" r="4" style="animation-duration:3.9s; animation-delay:1.3s"/>
+        <circle class="node node-tip" cx="200" cy="800" r="4" style="animation-duration:3.2s; animation-delay:0.2s"/>
+        <circle class="node node-tip" cx="1400" cy="820" r="4" style="animation-duration:3.6s; animation-delay:1.7s"/>
+        <circle class="node node-tip" cx="800" cy="60" r="4" style="animation-duration:4.0s; animation-delay:0.7s"/>
+        <circle class="node node-tip" cx="800" cy="850" r="4" style="animation-duration:3.4s; animation-delay:1.1s"/>
+        <circle class="node node-tip" cx="350" cy="450" r="3" style="animation-duration:3.0s; animation-delay:0.4s"/>
+        <circle class="node node-tip" cx="1200" cy="600" r="3" style="animation-duration:3.3s; animation-delay:1.6s"/>
+        <circle class="node node-tip" cx="560" cy="720" r="3" style="animation-duration:3.1s; animation-delay:1.0s"/>
+
+        <rect class="tint" x="0" y="0" width="1600" height="900"/>
+    </svg>
+</div>
+
 <header th:fragment="header">
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
