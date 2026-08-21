@@ -11,11 +11,26 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--retro-text);
-    background-color: #ffffff;
+    background-color: var(--retro-navy-dark);
+    background-image: linear-gradient(rgba(0, 51, 153, 0.6), rgba(0, 51, 153, 0.6)),
+        url("/images/network-bg.svg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 main {
     flex: 1;
+}
+
+/* Boxed panel for page headings/intros that would otherwise sit directly on the
+   tinted network background — matches the card/hero flat-bordered treatment. */
+.panel {
+    background-color: #ffffff;
+    border: 2px solid var(--retro-navy);
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55);
+    padding: 2rem;
 }
 
 a {
@@ -88,6 +103,7 @@ footer {
 }
 
 .card {
+    background-color: #ffffff !important;
     border: 2px solid var(--retro-navy) !important;
 }
 
@@ -141,6 +157,7 @@ footer {
 }
 
 .list-group-item {
+    background-color: #ffffff !important;
     border: 1px solid var(--retro-navy-dark) !important;
 }
 
