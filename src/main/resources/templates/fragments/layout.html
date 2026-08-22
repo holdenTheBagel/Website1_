@@ -22,29 +22,17 @@
             }
 
             .tentacle-main {
-                stroke-width: 2.5;
-                stroke-opacity: 0.55;
-                stroke-dasharray: 10 14;
-                animation-name: flow;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
+                stroke-width: 3.5;
+                stroke-opacity: 0.65;
             }
 
             .tentacle-branch {
-                stroke-width: 1.6;
-                stroke-opacity: 0.4;
-                stroke-dasharray: 6 10;
-                animation-name: flow;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-            }
-
-            @keyframes flow {
-                to { stroke-dashoffset: -480; }
+                stroke-width: 2.2;
+                stroke-opacity: 0.5;
             }
 
             .node {
-                fill: #ffffff;
+                fill: url(#nodeGradient);
                 transform-box: fill-box;
                 transform-origin: center;
                 animation-name: pulse;
@@ -53,13 +41,13 @@
                 filter: url(#glow);
             }
 
-            .node-hub { fill-opacity: 0.9; }
-            .node-tip { fill-opacity: 0.55; }
-            .node-ambient { fill-opacity: 0.35; }
+            .node-hub { opacity: 0.95; }
+            .node-tip { opacity: 0.7; }
+            .node-ambient { opacity: 0.45; }
 
             @keyframes pulse {
-                0%, 100% { opacity: 0.5; transform: scale(1); }
-                50% { opacity: 1; transform: scale(1.5); }
+                0%, 100% { opacity: 0.6; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.35); }
             }
         </style>
 
@@ -71,104 +59,145 @@
                     <feMergeNode in="SourceGraphic"/>
                 </feMerge>
             </filter>
+            <radialGradient id="nodeGradient" cx="35%" cy="32%" r="68%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+                <stop offset="55%" stop-color="#e6efff" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#8fb2ff" stop-opacity="0.2"/>
+            </radialGradient>
         </defs>
 
         <rect class="bg" x="0" y="0" width="1600" height="900"/>
 
         <!-- Connectors linking five hub clusters spread across the canvas -->
-        <path class="tentacle tentacle-main" style="animation-duration:4s; animation-delay:0s"
-              d="M250,200 C450,280 650,380 800,450"/>
-        <path class="tentacle tentacle-main" style="animation-duration:4.6s; animation-delay:0.4s"
-              d="M1300,180 C1100,260 900,380 800,450"/>
-        <path class="tentacle tentacle-main" style="animation-duration:4.3s; animation-delay:0.8s"
-              d="M800,450 C600,550 420,630 300,700"/>
-        <path class="tentacle tentacle-main" style="animation-duration:4.1s; animation-delay:1.2s"
-              d="M800,450 C1000,550 1200,660 1350,750"/>
+        <path class="tentacle tentacle-main" d="M250,200 C450,280 650,380 800,450">
+            <animate attributeName="d" dur="5.5s" begin="0s" repeatCount="indefinite"
+                     values="M250,200 C450,280 650,380 800,450;M250,200 C450,330 650,330 800,450;M250,200 C450,230 650,430 800,450;M250,200 C450,280 650,380 800,450"/>
+        </path>
+        <path class="tentacle tentacle-main" d="M1300,180 C1100,260 900,380 800,450">
+            <animate attributeName="d" dur="6s" begin="0.6s" repeatCount="indefinite"
+                     values="M1300,180 C1100,260 900,380 800,450;M1300,180 C1100,210 900,430 800,450;M1300,180 C1100,310 900,330 800,450;M1300,180 C1100,260 900,380 800,450"/>
+        </path>
+        <path class="tentacle tentacle-main" d="M800,450 C600,550 420,630 300,700">
+            <animate attributeName="d" dur="5.8s" begin="1.1s" repeatCount="indefinite"
+                     values="M800,450 C600,550 420,630 300,700;M800,450 C600,500 420,680 300,700;M800,450 C600,600 420,580 300,700;M800,450 C600,550 420,630 300,700"/>
+        </path>
+        <path class="tentacle tentacle-main" d="M800,450 C1000,550 1200,660 1350,750">
+            <animate attributeName="d" dur="6.2s" begin="1.6s" repeatCount="indefinite"
+                     values="M800,450 C1000,550 1200,660 1350,750;M800,450 C1000,500 1200,710 1350,750;M800,450 C1000,600 1200,610 1350,750;M800,450 C1000,550 1200,660 1350,750"/>
+        </path>
 
         <!-- Local tentacles around cluster 1 (top-left) -->
-        <path class="tentacle tentacle-branch" style="animation-duration:3.2s; animation-delay:0.1s"
-              d="M250,200 C180,160 120,140 80,120"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.5s; animation-delay:0.5s"
-              d="M250,200 C300,150 350,110 400,80"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.0s; animation-delay:0.9s"
-              d="M250,200 C200,260 170,310 150,350"/>
+        <path class="tentacle tentacle-branch" d="M250,200 C180,160 120,140 80,120">
+            <animate attributeName="d" dur="4.2s" begin="0.1s" repeatCount="indefinite"
+                     values="M250,200 C180,160 120,140 80,120;M250,200 C180,200 120,100 80,120;M250,200 C180,120 120,180 80,120;M250,200 C180,160 120,140 80,120"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M250,200 C300,150 350,110 400,80">
+            <animate attributeName="d" dur="4.6s" begin="0.5s" repeatCount="indefinite"
+                     values="M250,200 C300,150 350,110 400,80;M250,200 C300,190 350,70 400,80;M250,200 C300,110 350,150 400,80;M250,200 C300,150 350,110 400,80"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M250,200 C200,260 170,310 150,350">
+            <animate attributeName="d" dur="4.0s" begin="0.9s" repeatCount="indefinite"
+                     values="M250,200 C200,260 170,310 150,350;M250,200 C230,260 140,310 150,350;M250,200 C170,260 200,310 150,350;M250,200 C200,260 170,310 150,350"/>
+        </path>
 
         <!-- Local tentacles around cluster 2 (top-right) -->
-        <path class="tentacle tentacle-branch" style="animation-duration:3.3s; animation-delay:0.3s"
-              d="M1300,180 C1380,140 1450,110 1500,100"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.6s; animation-delay:0.7s"
-              d="M1300,180 C1400,220 1480,260 1550,300"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.1s; animation-delay:1.1s"
-              d="M1300,180 C1250,140 1200,110 1150,80"/>
+        <path class="tentacle tentacle-branch" d="M1300,180 C1380,140 1450,110 1500,100">
+            <animate attributeName="d" dur="4.4s" begin="0.3s" repeatCount="indefinite"
+                     values="M1300,180 C1380,140 1450,110 1500,100;M1300,180 C1380,190 1450,60 1500,100;M1300,180 C1380,90 1450,160 1500,100;M1300,180 C1380,140 1450,110 1500,100"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M1300,180 C1400,220 1480,260 1550,300">
+            <animate attributeName="d" dur="4.8s" begin="0.7s" repeatCount="indefinite"
+                     values="M1300,180 C1400,220 1480,260 1550,300;M1300,180 C1400,180 1480,300 1550,300;M1300,180 C1400,260 1480,220 1550,300;M1300,180 C1400,220 1480,260 1550,300"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M1300,180 C1250,140 1200,110 1150,80">
+            <animate attributeName="d" dur="4.1s" begin="1.1s" repeatCount="indefinite"
+                     values="M1300,180 C1250,140 1200,110 1150,80;M1300,180 C1250,190 1200,60 1150,80;M1300,180 C1250,90 1200,160 1150,80;M1300,180 C1250,140 1200,110 1150,80"/>
+        </path>
 
         <!-- Local tentacles around cluster 4 (bottom-left) -->
-        <path class="tentacle tentacle-branch" style="animation-duration:3.4s; animation-delay:0.2s"
-              d="M300,700 C220,730 150,760 100,780"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.7s; animation-delay:0.6s"
-              d="M300,700 C240,760 190,810 150,850"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.2s; animation-delay:1.0s"
-              d="M300,700 C350,750 400,790 450,820"/>
+        <path class="tentacle tentacle-branch" d="M300,700 C220,730 150,760 100,780">
+            <animate attributeName="d" dur="4.5s" begin="0.2s" repeatCount="indefinite"
+                     values="M300,700 C220,730 150,760 100,780;M300,700 C220,690 150,800 100,780;M300,700 C220,770 150,720 100,780;M300,700 C220,730 150,760 100,780"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M300,700 C240,760 190,810 150,850">
+            <animate attributeName="d" dur="4.9s" begin="0.6s" repeatCount="indefinite"
+                     values="M300,700 C240,760 190,810 150,850;M300,700 C240,720 190,850 150,850;M300,700 C240,800 190,770 150,850;M300,700 C240,760 190,810 150,850"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M300,700 C350,750 400,790 450,820">
+            <animate attributeName="d" dur="4.3s" begin="1.0s" repeatCount="indefinite"
+                     values="M300,700 C350,750 400,790 450,820;M300,700 C350,800 400,740 450,820;M300,700 C350,700 400,840 450,820;M300,700 C350,750 400,790 450,820"/>
+        </path>
 
         <!-- Local tentacles around cluster 5 (bottom-right) -->
-        <path class="tentacle tentacle-branch" style="animation-duration:3.5s; animation-delay:0.4s"
-              d="M1350,750 C1430,780 1490,800 1550,820"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.8s; animation-delay:0.8s"
-              d="M1350,750 C1420,720 1460,690 1500,650"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.3s; animation-delay:1.2s"
-              d="M1350,750 C1300,790 1250,820 1200,850"/>
+        <path class="tentacle tentacle-branch" d="M1350,750 C1430,780 1490,800 1550,820">
+            <animate attributeName="d" dur="4.6s" begin="0.4s" repeatCount="indefinite"
+                     values="M1350,750 C1430,780 1490,800 1550,820;M1350,750 C1430,830 1490,760 1550,820;M1350,750 C1430,730 1490,840 1550,820;M1350,750 C1430,780 1490,800 1550,820"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M1350,750 C1420,720 1460,690 1500,650">
+            <animate attributeName="d" dur="5.0s" begin="0.8s" repeatCount="indefinite"
+                     values="M1350,750 C1420,720 1460,690 1500,650;M1350,750 C1420,770 1460,640 1500,650;M1350,750 C1420,670 1460,740 1500,650;M1350,750 C1420,720 1460,690 1500,650"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M1350,750 C1300,790 1250,820 1200,850">
+            <animate attributeName="d" dur="4.2s" begin="1.2s" repeatCount="indefinite"
+                     values="M1350,750 C1300,790 1250,820 1200,850;M1350,750 C1300,730 1250,870 1200,850;M1350,750 C1300,850 1250,770 1200,850;M1350,750 C1300,790 1250,820 1200,850"/>
+        </path>
 
         <!-- Local tentacles around the center cluster -->
-        <path class="tentacle tentacle-branch" style="animation-duration:3.0s; animation-delay:0.5s"
-              d="M800,450 C860,410 900,380 950,350"/>
-        <path class="tentacle tentacle-branch" style="animation-duration:3.4s; animation-delay:0.9s"
-              d="M800,450 C740,490 690,520 650,550"/>
+        <path class="tentacle tentacle-branch" d="M800,450 C860,410 900,380 950,350">
+            <animate attributeName="d" dur="4.0s" begin="0.5s" repeatCount="indefinite"
+                     values="M800,450 C860,410 900,380 950,350;M800,450 C860,460 900,330 950,350;M800,450 C860,360 900,430 950,350;M800,450 C860,410 900,380 950,350"/>
+        </path>
+        <path class="tentacle tentacle-branch" d="M800,450 C740,490 690,520 650,550">
+            <animate attributeName="d" dur="4.4s" begin="0.9s" repeatCount="indefinite"
+                     values="M800,450 C740,490 690,520 650,550;M800,450 C740,440 690,570 650,550;M800,450 C740,540 690,470 650,550;M800,450 C740,490 690,520 650,550"/>
+        </path>
 
         <!-- Hub cluster centers -->
-        <circle class="node node-hub" cx="250" cy="200" r="7" style="animation-duration:3.5s; animation-delay:0s"/>
-        <circle class="node node-hub" cx="1300" cy="180" r="7" style="animation-duration:3.6s; animation-delay:0.3s"/>
-        <circle class="node node-hub" cx="800" cy="450" r="7" style="animation-duration:3.4s; animation-delay:0.6s"/>
-        <circle class="node node-hub" cx="300" cy="700" r="7" style="animation-duration:3.7s; animation-delay:0.9s"/>
-        <circle class="node node-hub" cx="1350" cy="750" r="7" style="animation-duration:3.3s; animation-delay:1.2s"/>
+        <circle class="node node-hub" cx="250" cy="200" r="10" style="animation-duration:3.5s; animation-delay:0s"/>
+        <circle class="node node-hub" cx="1300" cy="180" r="10" style="animation-duration:3.6s; animation-delay:0.3s"/>
+        <circle class="node node-hub" cx="800" cy="450" r="10" style="animation-duration:3.4s; animation-delay:0.6s"/>
+        <circle class="node node-hub" cx="300" cy="700" r="10" style="animation-duration:3.7s; animation-delay:0.9s"/>
+        <circle class="node node-hub" cx="1350" cy="750" r="10" style="animation-duration:3.3s; animation-delay:1.2s"/>
 
         <!-- Satellite nodes around each cluster -->
-        <circle class="node node-hub" cx="220" cy="170" r="4" style="animation-duration:3.2s; animation-delay:0.2s"/>
-        <circle class="node node-hub" cx="280" cy="230" r="4" style="animation-duration:3.5s; animation-delay:0.5s"/>
-        <circle class="node node-hub" cx="1270" cy="150" r="4" style="animation-duration:3.3s; animation-delay:0.4s"/>
-        <circle class="node node-hub" cx="1330" cy="210" r="4" style="animation-duration:3.6s; animation-delay:0.7s"/>
-        <circle class="node node-hub" cx="760" cy="410" r="5" style="animation-duration:3.2s; animation-delay:0.3s"/>
-        <circle class="node node-hub" cx="840" cy="490" r="5" style="animation-duration:3.6s; animation-delay:1.2s"/>
-        <circle class="node node-hub" cx="270" cy="670" r="4" style="animation-duration:3.4s; animation-delay:1.0s"/>
-        <circle class="node node-hub" cx="330" cy="730" r="4" style="animation-duration:3.7s; animation-delay:1.3s"/>
-        <circle class="node node-hub" cx="1320" cy="720" r="4" style="animation-duration:3.1s; animation-delay:1.1s"/>
-        <circle class="node node-hub" cx="1380" cy="780" r="4" style="animation-duration:3.4s; animation-delay:1.4s"/>
+        <circle class="node node-hub" cx="220" cy="170" r="6" style="animation-duration:3.2s; animation-delay:0.2s"/>
+        <circle class="node node-hub" cx="280" cy="230" r="6" style="animation-duration:3.5s; animation-delay:0.5s"/>
+        <circle class="node node-hub" cx="1270" cy="150" r="6" style="animation-duration:3.3s; animation-delay:0.4s"/>
+        <circle class="node node-hub" cx="1330" cy="210" r="6" style="animation-duration:3.6s; animation-delay:0.7s"/>
+        <circle class="node node-hub" cx="760" cy="410" r="7" style="animation-duration:3.2s; animation-delay:0.3s"/>
+        <circle class="node node-hub" cx="840" cy="490" r="7" style="animation-duration:3.6s; animation-delay:1.2s"/>
+        <circle class="node node-hub" cx="270" cy="670" r="6" style="animation-duration:3.4s; animation-delay:1.0s"/>
+        <circle class="node node-hub" cx="330" cy="730" r="6" style="animation-duration:3.7s; animation-delay:1.3s"/>
+        <circle class="node node-hub" cx="1320" cy="720" r="6" style="animation-duration:3.1s; animation-delay:1.1s"/>
+        <circle class="node node-hub" cx="1380" cy="780" r="6" style="animation-duration:3.4s; animation-delay:1.4s"/>
 
         <!-- Tips -->
-        <circle class="node node-tip" cx="80" cy="120" r="3" style="animation-duration:3.3s; animation-delay:0.1s"/>
-        <circle class="node node-tip" cx="400" cy="80" r="3" style="animation-duration:3.7s; animation-delay:0.5s"/>
-        <circle class="node node-tip" cx="150" cy="350" r="3" style="animation-duration:3.5s; animation-delay:0.9s"/>
-        <circle class="node node-tip" cx="1500" cy="100" r="3" style="animation-duration:3.9s; animation-delay:1.3s"/>
-        <circle class="node node-tip" cx="1550" cy="300" r="3" style="animation-duration:3.2s; animation-delay:0.2s"/>
-        <circle class="node node-tip" cx="1150" cy="80" r="3" style="animation-duration:3.6s; animation-delay:1.7s"/>
-        <circle class="node node-tip" cx="100" cy="780" r="3" style="animation-duration:4.0s; animation-delay:0.7s"/>
-        <circle class="node node-tip" cx="150" cy="850" r="3" style="animation-duration:3.4s; animation-delay:1.1s"/>
-        <circle class="node node-tip" cx="450" cy="820" r="3" style="animation-duration:3.0s; animation-delay:0.4s"/>
-        <circle class="node node-tip" cx="1550" cy="820" r="3" style="animation-duration:3.3s; animation-delay:1.6s"/>
-        <circle class="node node-tip" cx="1500" cy="650" r="3" style="animation-duration:3.1s; animation-delay:1.0s"/>
-        <circle class="node node-tip" cx="1200" cy="850" r="3" style="animation-duration:3.5s; animation-delay:0.6s"/>
-        <circle class="node node-tip" cx="950" cy="350" r="3" style="animation-duration:3.2s; animation-delay:0.8s"/>
-        <circle class="node node-tip" cx="650" cy="550" r="3" style="animation-duration:3.6s; animation-delay:1.5s"/>
+        <circle class="node node-tip" cx="80" cy="120" r="5" style="animation-duration:3.3s; animation-delay:0.1s"/>
+        <circle class="node node-tip" cx="400" cy="80" r="5" style="animation-duration:3.7s; animation-delay:0.5s"/>
+        <circle class="node node-tip" cx="150" cy="350" r="5" style="animation-duration:3.5s; animation-delay:0.9s"/>
+        <circle class="node node-tip" cx="1500" cy="100" r="5" style="animation-duration:3.9s; animation-delay:1.3s"/>
+        <circle class="node node-tip" cx="1550" cy="300" r="5" style="animation-duration:3.2s; animation-delay:0.2s"/>
+        <circle class="node node-tip" cx="1150" cy="80" r="5" style="animation-duration:3.6s; animation-delay:1.7s"/>
+        <circle class="node node-tip" cx="100" cy="780" r="5" style="animation-duration:4.0s; animation-delay:0.7s"/>
+        <circle class="node node-tip" cx="150" cy="850" r="5" style="animation-duration:3.4s; animation-delay:1.1s"/>
+        <circle class="node node-tip" cx="450" cy="820" r="5" style="animation-duration:3.0s; animation-delay:0.4s"/>
+        <circle class="node node-tip" cx="1550" cy="820" r="5" style="animation-duration:3.3s; animation-delay:1.6s"/>
+        <circle class="node node-tip" cx="1500" cy="650" r="5" style="animation-duration:3.1s; animation-delay:1.0s"/>
+        <circle class="node node-tip" cx="1200" cy="850" r="5" style="animation-duration:3.5s; animation-delay:0.6s"/>
+        <circle class="node node-tip" cx="950" cy="350" r="5" style="animation-duration:3.2s; animation-delay:0.8s"/>
+        <circle class="node node-tip" cx="650" cy="550" r="5" style="animation-duration:3.6s; animation-delay:1.5s"/>
 
         <!-- Ambient scattered nodes filling the remaining gaps -->
-        <circle class="node node-ambient" cx="1550" cy="470" r="3" style="animation-duration:4.2s; animation-delay:0.1s"/>
-        <circle class="node node-ambient" cx="50" cy="470" r="3" style="animation-duration:3.8s; animation-delay:0.6s"/>
-        <circle class="node node-ambient" cx="800" cy="850" r="3" style="animation-duration:4.0s; animation-delay:1.1s"/>
-        <circle class="node node-ambient" cx="800" cy="60" r="3" style="animation-duration:3.6s; animation-delay:0.4s"/>
-        <circle class="node node-ambient" cx="1100" cy="550" r="2" style="animation-duration:3.9s; animation-delay:0.9s"/>
-        <circle class="node node-ambient" cx="500" cy="600" r="2" style="animation-duration:4.1s; animation-delay:1.4s"/>
-        <circle class="node node-ambient" cx="1150" cy="350" r="2" style="animation-duration:3.7s; animation-delay:0.2s"/>
-        <circle class="node node-ambient" cx="450" cy="350" r="2" style="animation-duration:4.3s; animation-delay:0.7s"/>
-        <circle class="node node-ambient" cx="1000" cy="750" r="2" style="animation-duration:3.5s; animation-delay:1.2s"/>
-        <circle class="node node-ambient" cx="600" cy="820" r="2" style="animation-duration:4.0s; animation-delay:0.3s"/>
+        <circle class="node node-ambient" cx="1550" cy="470" r="4" style="animation-duration:4.2s; animation-delay:0.1s"/>
+        <circle class="node node-ambient" cx="50" cy="470" r="4" style="animation-duration:3.8s; animation-delay:0.6s"/>
+        <circle class="node node-ambient" cx="800" cy="850" r="4" style="animation-duration:4.0s; animation-delay:1.1s"/>
+        <circle class="node node-ambient" cx="800" cy="60" r="4" style="animation-duration:3.6s; animation-delay:0.4s"/>
+        <circle class="node node-ambient" cx="1100" cy="550" r="3" style="animation-duration:3.9s; animation-delay:0.9s"/>
+        <circle class="node node-ambient" cx="500" cy="600" r="3" style="animation-duration:4.1s; animation-delay:1.4s"/>
+        <circle class="node node-ambient" cx="1150" cy="350" r="3" style="animation-duration:3.7s; animation-delay:0.2s"/>
+        <circle class="node node-ambient" cx="450" cy="350" r="3" style="animation-duration:4.3s; animation-delay:0.7s"/>
+        <circle class="node node-ambient" cx="1000" cy="750" r="3" style="animation-duration:3.5s; animation-delay:1.2s"/>
+        <circle class="node node-ambient" cx="600" cy="820" r="3" style="animation-duration:4.0s; animation-delay:0.3s"/>
 
         <rect class="tint" x="0" y="0" width="1600" height="900"/>
     </svg>
