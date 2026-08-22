@@ -8,37 +8,115 @@
 <main class="container py-5">
     <div class="panel mb-5">
         <h1 class="mb-4">Services</h1>
-        <p class="text-muted mb-0">Reach out on the
-            <a th:href="@{/contact}">contact page</a> for a <strong>free</strong> quote.</p>
+        <p class="text-muted mb-0">[Placeholder: one or two sentences framing this page — here's exactly what's
+            included, how the process works, and what it costs. Have a question that's not answered here?
+            <a th:href="@{/contact}">Get in touch</a> for a free quote.]</p>
     </div>
 
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="service-card card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Web Development</h5>
-                    <p class="card-text">Custom websites and web applications built with the technology stack of your choice. Everything is built to work with your existing systems.</p>
+    <div class="panel mb-5">
+        <h2 class="text-center mb-4">How It Works</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h5>Reach Out</h5>
+                    <p class="text-muted mb-0">[Placeholder: what happens when someone contacts you — response time,
+                        what you ask for up front]</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h5>Scope &amp; Quote</h5>
+                    <p class="text-muted mb-0">[Placeholder: how you turn a conversation into a concrete plan and
+                        price]</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h5>Build &amp; Integrate</h5>
+                    <p class="text-muted mb-0">[Placeholder: what delivery looks like, how much you involve the
+                        client along the way]</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h5>Ongoing Support</h5>
+                    <p class="text-muted mb-0">[Placeholder: what happens after launch/handoff]</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="service-card card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">IT Support</h5>
-                    <p class="card-text">Hands-on troubleshooting, setup, and maintenance for small teams and
-                        individuals.</p>
-                </div>
+    </div>
+
+    <div class="panel mb-5">
+        <div class="row align-items-center g-4">
+            <div class="col-md-7">
+                <h2>AI Integration</h2>
+                <p class="text-muted">[Placeholder: 2-3 sentences expanding on this service specifically — what
+                    kinds of businesses/workflows this is for, what a typical engagement looks like]</p>
+                <h6 class="mt-4">What's included</h6>
+                <ul class="text-muted">
+                    <li>[Placeholder: e.g. tool selection — which AI tools fit their workflow]</li>
+                    <li>[Placeholder: e.g. wiring the tools into their existing systems/processes]</li>
+                    <li>[Placeholder: e.g. staff training so the tools actually get used]</li>
+                </ul>
+            </div>
+            <div class="col-md-5 text-center">
+                <p class="fs-3 fw-bold mb-1">[Starting at $XXX]</p>
+                <p class="text-muted small mb-3">[Placeholder: pricing note — e.g. "final quote depends on scope"]</p>
+                <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="service-card card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Consulting</h5>
-                    <p class="card-text">Guidance on picking the right tools and architecture for a new or
-                        growing project.</p>
-                </div>
+    </div>
+
+    <div class="panel mb-5">
+        <div class="row align-items-center g-4">
+            <div class="col-md-7">
+                <h2>24/7 Support</h2>
+                <p class="text-muted">[Placeholder: 2-3 sentences — what "support" actually covers, response time
+                    expectations, who this is for]</p>
+                <h6 class="mt-4">What's included</h6>
+                <ul class="text-muted">
+                    <li>[Placeholder: e.g. response time commitment]</li>
+                    <li>[Placeholder: e.g. what channels — email, phone, ticket system]</li>
+                    <li>[Placeholder: e.g. what's covered vs. billed separately]</li>
+                </ul>
+            </div>
+            <div class="col-md-5 text-center">
+                <p class="fs-3 fw-bold mb-1">[Starting at $XXX/mo]</p>
+                <p class="text-muted small mb-3">[Placeholder: pricing note]</p>
+                <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
             </div>
         </div>
+    </div>
+
+    <div class="panel mb-5">
+        <div class="row align-items-center g-4">
+            <div class="col-md-7">
+                <h2>Consulting</h2>
+                <p class="text-muted">[Placeholder: 2-3 sentences — what kind of decisions/problems you help
+                    with, what a session or engagement looks like]</p>
+                <h6 class="mt-4">What's included</h6>
+                <ul class="text-muted">
+                    <li>[Placeholder: e.g. tool/architecture recommendations]</li>
+                    <li>[Placeholder: e.g. a written plan or summary deliverable]</li>
+                    <li>[Placeholder: e.g. follow-up availability]</li>
+                </ul>
+            </div>
+            <div class="col-md-5 text-center">
+                <p class="fs-3 fw-bold mb-1">[Starting at $XXX]</p>
+                <p class="text-muted small mb-3">[Placeholder: pricing note — e.g. "free initial consultation"]</p>
+                <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel text-center">
+        <h2 class="mb-3">Ready to get started?</h2>
+        <p class="text-muted mb-4">[Placeholder: closing CTA line]</p>
+        <a class="btn btn-primary btn-lg" th:href="@{/contact}">Contact Me</a>
     </div>
 </main>
 

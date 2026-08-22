@@ -51,6 +51,21 @@ main {
     padding: 2rem;
 }
 
+.process-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 0.75rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #3366d9 0%, var(--retro-navy) 55%, #002670 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
 a {
     color: var(--retro-link);
     text-decoration: underline;
