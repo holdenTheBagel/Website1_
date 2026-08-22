@@ -5,6 +5,10 @@
     --retro-text: #111111;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -12,6 +16,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--retro-text);
     background-color: #000000;
+    overflow-x: hidden;
 }
 
 main {
@@ -235,40 +240,112 @@ footer {
     box-shadow: 10px 16px 18px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Illustrated service tiles: floating text over a background image, no boxed
-   panel behind the text itself — the image is the card, framed to match the
-   site's flat-bordered look. */
-.service-tile {
+/* Landing area: hero + scroll prompt fill the viewport on load, so the
+   service-story sections below start off-screen until the user scrolls. */
+.hero-landing {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scroll-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.scroll-prompt-text {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.85), 0 0 22px rgba(143, 178, 255, 0.6);
+    animation: nodeGlowPulse 2.2s ease-in-out infinite;
+}
+
+.scroll-arrow svg {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 16px rgba(143, 178, 255, 0.6));
+    animation: nodeGlowPulse 2.2s ease-in-out infinite;
+    animation-delay: 0.15s;
+}
+
+@keyframes nodeGlowPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Full-bleed scroll-triggered service sections: break out of the container to
+   span the full viewport width, background fades in (still translucent) and
+   the text floats up into view as each section scrolls into place. */
+.service-story {
     position: relative;
-    display: block;
-    min-height: 360px;
-    background-size: cover;
-    background-position: center;
-    border: 2px solid var(--retro-navy);
-    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
-.service-tile-overlay {
+.service-story-bg {
     position: absolute;
     inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.8) 100%);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.1s ease;
 }
 
-.service-tile-overlay h3 {
+.service-story.is-active .service-story-bg {
+    opacity: 0.6;
+}
+
+.service-story-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 51, 153, 0.25);
+}
+
+.service-story-text {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition-delay: 0.3s;
+}
+
+.service-story.is-active .service-story-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-story-text h3 {
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
-    margin-bottom: 0.4rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
+    margin-bottom: 0.75rem;
 }
 
-.service-tile-overlay p {
+.service-story-text p {
     color: #f2f2f2;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.85);
     margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-prompt-text,
+    .scroll-arrow svg {
+        animation: none;
+    }
+
+    .service-story-bg,
+    .service-story-text {
+        transition: none;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
