@@ -280,7 +280,7 @@ footer {
     position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    min-height: 100vh;
+    min-height: 180vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,18 +293,25 @@ footer {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 1.1s ease;
+    transition: opacity 1.4s ease;
 }
 
 .service-story.is-active .service-story-bg {
     opacity: 0.6;
 }
 
+/* Ombre blend: each section's image fades to solid black at its top/bottom
+   edges (with a navy tint through the visible middle), so consecutive
+   sections melt into one another instead of meeting at a hard seam. */
 .service-story-bg::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 51, 153, 0.25);
+    background: linear-gradient(to bottom,
+        #000000 0%,
+        rgba(0, 51, 153, 0.25) 18%,
+        rgba(0, 51, 153, 0.25) 82%,
+        #000000 100%);
 }
 
 .service-story-text {
