@@ -235,6 +235,42 @@ footer {
     box-shadow: 10px 16px 18px rgba(0, 0, 0, 0.6) !important;
 }
 
+/* Illustrated service tiles: floating text over a background image, no boxed
+   panel behind the text itself — the image is the card, framed to match the
+   site's flat-bordered look. */
+.service-tile {
+    position: relative;
+    display: block;
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--retro-navy);
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+
+.service-tile-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.service-tile-overlay h3 {
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+    margin-bottom: 0.4rem;
+}
+
+.service-tile-overlay p {
+    color: #f2f2f2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.85);
+    margin-bottom: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .hero > *,
     .service-card {
