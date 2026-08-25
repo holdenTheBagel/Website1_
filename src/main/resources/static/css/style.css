@@ -312,14 +312,14 @@ footer {
     transition: opacity 1.4s ease;
 }
 
-/* On narrow screens the section is much taller relative to its width than
-   these landscape photos are, so "cover" crops most of the width away to
-   fill the height. Force full width instead, letting height scale
-   proportionally (any extra space blends into the black/tint background). */
+/* On narrow screens a 180vh section is far taller relative to its width than
+   these landscape photos are, so "cover" would crop most of the width away
+   to fill that height. Rather than leaving empty space around a
+   full-width image (worse), shrink the section itself so "cover" only
+   needs a much less aggressive crop. */
 @media (max-width: 767px) {
-    .service-story-bg {
-        background-size: 100% auto;
-        background-position: center center;
+    .service-story {
+        min-height: 100vh;
     }
 }
 
