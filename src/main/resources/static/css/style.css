@@ -307,8 +307,20 @@ footer {
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.4s ease;
+}
+
+/* On narrow screens the section is much taller relative to its width than
+   these landscape photos are, so "cover" crops most of the width away to
+   fill the height. Force full width instead, letting height scale
+   proportionally (any extra space blends into the black/tint background). */
+@media (max-width: 767px) {
+    .service-story-bg {
+        background-size: 100% auto;
+        background-position: center center;
+    }
 }
 
 .service-story.is-active .service-story-bg {
