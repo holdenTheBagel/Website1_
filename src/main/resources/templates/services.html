@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head(title='Services')}"></head>
-<body>
+<body class="page-inner">
 <div th:replace="~{fragments/layout :: background}"></div>
 <header th:replace="~{fragments/layout :: header}"></header>
 
@@ -41,7 +41,7 @@
                 <div class="process-step">
                     <div class="process-step-number">4</div>
                     <h5>Ongoing Support</h5>
-                    <p class="text-muted mb-0">Our products are like vehicles. You can fix and maintain them yourself, or you can come to us for help.</p>
+                    <p class="text-muted mb-0">Once things are live, I stay in the loop — available for updates, fixes, or questions as your needs change.</p>
                 </div>
             </div>
         </div>
@@ -57,12 +57,12 @@
                 <ul class="text-muted">
                     <li>Assign agents to repetitive and time-consuming tasks.</li>
                     <li>Build support assistants for your customers when a human isn't available.</li>
-                    <li>[Placeholder: e.g. staff training so the tools actually get used]</li>
+                    <li>Hands-on training so your team is actually comfortable using the new tools day to day.</li>
                 </ul>
             </div>
             <div class="col-md-5 text-center">
-                <p class="fs-3 fw-bold mb-1">[Starting at $XXX]</p>
-                <p class="text-muted small mb-3">[Placeholder: pricing note — e.g. "final quote depends on scope"]</p>
+                <p class="fs-3 fw-bold mb-1">Custom Quote</p>
+                <p class="text-muted small mb-3">Pricing depends on the size and complexity of your workflow — every quote is tailored after an initial conversation.</p>
                 <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
             </div>
         </div>
@@ -72,18 +72,19 @@
         <div class="row align-items-center g-4">
             <div class="col-md-7">
                 <h2>24/7 Support</h2>
-                <p class="text-muted">[Placeholder: 2-3 sentences — what "support" actually covers, response time
-                    expectations, who this is for]</p>
+                <p class="text-muted">Software breaks at the worst possible times. Whether it's a late-night
+                    outage or a quick question mid-workday, you'll have someone who already knows your systems on
+                    the other end — not a ticket queue starting from zero.</p>
                 <h6 class="mt-4">What's included</h6>
                 <ul class="text-muted">
-                    <li>[Placeholder: e.g. response time commitment]</li>
-                    <li>[Placeholder: e.g. what channels — email, phone, ticket system]</li>
-                    <li>[Placeholder: e.g. what's covered vs. billed separately]</li>
+                    <li>A guaranteed response window, not an open-ended wait.</li>
+                    <li>Reach me by email or phone — whichever is faster for your situation.</li>
+                    <li>Routine monitoring and maintenance included; larger changes are quoted separately.</li>
                 </ul>
             </div>
             <div class="col-md-5 text-center">
-                <p class="fs-3 fw-bold mb-1">[Starting at $XXX/mo]</p>
-                <p class="text-muted small mb-3">[Placeholder: pricing note]</p>
+                <p class="fs-3 fw-bold mb-1">Custom Quote</p>
+                <p class="text-muted small mb-3">Priced around how much ongoing coverage your systems actually need.</p>
                 <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
             </div>
         </div>
@@ -93,18 +94,19 @@
         <div class="row align-items-center g-4">
             <div class="col-md-7">
                 <h2>Consulting</h2>
-                <p class="text-muted">[Placeholder: 2-3 sentences — what kind of decisions/problems you help
-                    with, what a session or engagement looks like]</p>
+                <p class="text-muted">Sometimes the most valuable thing isn't more code — it's an outside
+                    perspective before you commit to a direction. I'll help you weigh your options on tooling,
+                    architecture, and whether AI actually fits the problem you're trying to solve.</p>
                 <h6 class="mt-4">What's included</h6>
                 <ul class="text-muted">
-                    <li>[Placeholder: e.g. tool/architecture recommendations]</li>
-                    <li>[Placeholder: e.g. a written plan or summary deliverable]</li>
-                    <li>[Placeholder: e.g. follow-up availability]</li>
+                    <li>A clear recommendation, not just a list of options.</li>
+                    <li>A short written summary you can share with your team or other vendors.</li>
+                    <li>Follow-up questions welcome after the engagement wraps up.</li>
                 </ul>
             </div>
             <div class="col-md-5 text-center">
-                <p class="fs-3 fw-bold mb-1">[Starting at $XXX]</p>
-                <p class="text-muted small mb-3">[Placeholder: pricing note — e.g. "free initial consultation"]</p>
+                <p class="fs-3 fw-bold mb-1">Free Initial Consultation</p>
+                <p class="text-muted small mb-3">Deeper engagements are quoted based on scope.</p>
                 <a class="btn btn-primary" th:href="@{/contact}">Get a Quote</a>
             </div>
         </div>
@@ -112,7 +114,8 @@
 
     <div class="panel text-center">
         <h2 class="mb-3">Ready to get started?</h2>
-        <p class="text-muted mb-4">[Placeholder: closing CTA line]</p>
+        <p class="text-muted mb-4">Still deciding what you need? Reach out and we'll figure out the right fit for
+            your business together.</p>
         <a class="btn btn-primary btn-lg" th:href="@{/contact}">Contact Me</a>
     </div>
 </main>

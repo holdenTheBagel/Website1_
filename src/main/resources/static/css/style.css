@@ -1,7 +1,7 @@
 :root {
     --retro-navy: #003399;
     --retro-navy-dark: #001f5c;
-    --retro-link: #0000cc;
+    --retro-link: var(--retro-navy);
     --retro-text: #111111;
 }
 
@@ -25,13 +25,21 @@ main {
 
 /* Animated network graphic, inline SVG (not a CSS background-image) so its
    CSS animations actually run — browsers commonly freeze animations on SVGs
-   loaded purely as background images/<img> sources. */
+   loaded purely as background images/<img> sources.
+   Reserved for the home page only: it's a great showcase flourish behind a
+   scroll-driven hero, but too busy sitting behind body text/forms on the
+   About/Services/Contact pages, so it's hidden there by default. */
 .bg-network {
+    display: none;
     position: fixed;
     inset: 0;
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
+}
+
+body.page-home .bg-network {
+    display: block;
 }
 
 .bg-network svg {
@@ -43,11 +51,12 @@ main {
 /* Boxed panel for page headings/intros that would otherwise sit directly on the
    tinted network background — matches the card/hero flat-bordered treatment. */
 .panel {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border: 2px solid var(--retro-navy);
-    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55);
+    border: 1px solid var(--retro-navy);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     padding: 2rem;
 }
 
@@ -63,16 +72,17 @@ main {
     color: #ffffff;
     font-weight: 700;
     font-size: 1.1rem;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
 }
 
 a {
     color: var(--retro-link);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--retro-navy-dark);
+    text-decoration: underline;
 }
 
 /* --- Navbar / logo wordmark --- */
@@ -119,44 +129,44 @@ footer {
     border-top: 3px solid var(--retro-navy);
 }
 
-/* --- Flat, hard-bordered modules (no rounded corners, no soft shadows) --- */
+/* --- Softly-bordered modules with contemporary corner radii and shadows --- */
 .card,
 .btn,
 .form-control,
 .alert,
 .list-group-item {
-    border-radius: 0 !important;
+    border-radius: 8px !important;
 }
 
 .card,
 .hero,
 .alert,
 .list-group-item {
-    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.55) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border: 2px solid var(--retro-navy) !important;
+    border: 1px solid var(--retro-navy) !important;
 }
 
-/* Beveled 3D buttons: gradient fill + inset highlight/shade lines + a strong drop shadow */
+/* Buttons: subtle gradient fill with a soft, conventional drop shadow */
 .btn {
     border-width: 1px;
-    box-shadow:
-        6px 6px 10px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        inset 0 -2px 3px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.1s ease, transform 0.1s ease, background 0.15s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
 .btn:active {
-    box-shadow:
-        1px 1px 3px rgba(0, 0, 0, 0.55),
-        inset 0 2px 4px rgba(0, 0, 0, 0.4);
-    transform: translate(4px, 4px);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary {
@@ -183,16 +193,16 @@ footer {
 
 .form-control {
     border: 1px solid var(--retro-navy-dark);
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .form-control:focus {
     border-color: var(--retro-navy);
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 51, 153, 0.25);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(0, 51, 153, 0.2);
 }
 
 .list-group-item {
-    background-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--retro-navy-dark) !important;
@@ -200,11 +210,12 @@ footer {
 
 /* --- Hero banner module --- */
 .hero {
-    background-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border: 3px solid var(--retro-navy);
-    border-top: 8px solid var(--retro-navy);
+    border: 1px solid var(--retro-navy);
+    border-top: 5px solid var(--retro-navy);
+    border-radius: 8px;
 }
 
 /* Honeypot anti-spam field: present in the DOM for bots to fill in,
@@ -252,7 +263,7 @@ footer {
 .service-card:hover {
     transform: translateY(-6px);
     border-color: var(--retro-navy-dark) !important;
-    box-shadow: 10px 16px 18px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Landing area: hero + scroll prompt fill the viewport on load, so the
