@@ -20,4 +20,9 @@ public class PageController {
     public String about() {
         return "about";
     }
+
+    @GetMapping("/quote")
+    public String quote() {
+        return "quote";
+    }
 }
