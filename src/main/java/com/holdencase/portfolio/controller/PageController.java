@@ -16,11 +16,6 @@ public class PageController {
         return "services";
     }
 
-    @GetMapping("/about")
-    public String about() {
-        return "about";
-    }
-
     @GetMapping("/quote")
     public String quote() {
         return "quote";

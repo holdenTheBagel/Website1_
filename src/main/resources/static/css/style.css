@@ -25,21 +25,14 @@ main {
 
 /* Animated network graphic, inline SVG (not a CSS background-image) so its
    CSS animations actually run — browsers commonly freeze animations on SVGs
-   loaded purely as background images/<img> sources.
-   Reserved for the home page only: it's a great showcase flourish behind a
-   scroll-driven hero, but too busy sitting behind body text/forms on the
-   About/Services/Contact pages, so it's hidden there by default. */
+   loaded purely as background images/<img> sources. Shown on every page. */
 .bg-network {
-    display: none;
+    display: block;
     position: fixed;
     inset: 0;
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
-}
-
-body.page-home .bg-network {
-    display: block;
 }
 
 .bg-network svg {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head(title='Services')}"></head>
-<body class="page-inner">
+<body>
 <div th:replace="~{fragments/layout :: background}"></div>
 <header th:replace="~{fragments/layout :: header}"></header>
 
@@ -104,13 +104,6 @@
                 <a class="btn btn-primary btn-lg" th:href="@{/quote}">Get a Quote</a>
             </div>
         </div>
-    </div>
-
-    <div class="panel text-center">
-        <h2 class="mb-3">Ready to get started?</h2>
-        <p class="text-muted mb-4">Still deciding what you need? Reach out and we'll figure out the right fit for
-            your business together.</p>
-        <a class="btn btn-primary btn-lg" th:href="@{/contact}">Contact Me</a>
     </div>
 </main>
 
